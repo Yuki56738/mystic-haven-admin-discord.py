@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 py-cord = {extras = ["voice"], version = "*"}
+python-dotenv = "*"
+dataset = "*"
+audioop-lts = "*"
 
 [dev-packages]
 
