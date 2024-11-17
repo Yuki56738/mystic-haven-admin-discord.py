@@ -45,7 +45,7 @@ async def on_voice_state_update(member: Member, before: VoiceState, after: Voice
             x: OrderedDict
             vcid = x.get('vcid')
             vcowner = x.get('vcowner')
-            if vcid == str(before.channel.id) and vcowner == str(member.id):
+            if vcid == str(before.channel.id):
                 await before.channel.delete()
                 table.delete(id=x.get('id'))
                 break
@@ -53,6 +53,8 @@ async def on_voice_state_update(member: Member, before: VoiceState, after: Voice
 @bot.slash_command(name='setvcforcreate', description='Set voice channel for create')
 @commands.option('vcid', 'Voice channel id', type=str)
 async def setvcforcreate(ctx: ApplicationContext, vc: str):
+    if not ctx.author.guild_permissions.administrator:
+        return await ctx.respond('You do not have administrator permission.')
     table = db[str(ctx.guild.id)]
     table.upsert(dict(setvc_create=str(vc)), ['id'])
     await ctx.respond(f'Set voice channel for create {vc}')
