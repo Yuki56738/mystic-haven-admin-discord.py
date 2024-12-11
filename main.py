@@ -6,7 +6,7 @@ import discord
 import dotenv
 import dataset
 from aiohttp.web_routedef import options
-from discord import Member, VoiceState, ApplicationContext, slash_command, commands
+from discord import *
 
 dotenv.load_dotenv()
 
@@ -62,9 +62,9 @@ async def setvcforcreate(ctx: ApplicationContext, vc: str):
 async def on_message(message):
     if message.author == bot.user:
         return
-    if message.content.startswith('.debug'):
-        for x in db[str(message.guild.id)]:
-            x: OrderedDict
-            print(x.get('setvc_create'))
+    # if message.content.startswith('.debug'):
+    #     for x in db[str(message.guild.id)]:
+    #         x: OrderedDict
+    #         print(x.get('setvc_create'))
 
 bot.run(TOKEN)
