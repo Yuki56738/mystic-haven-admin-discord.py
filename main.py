@@ -14,7 +14,7 @@ TOKEN=os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.all()
 bot=discord.Bot(intents=intents)
 # db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
-db: dataset.Database = dataset.connect(str(os.getenv('DB')))
+db: dataset.Database = dataset.connect(os.getenv('MYSQL_URL'))
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')

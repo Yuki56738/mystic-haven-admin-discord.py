@@ -7,11 +7,9 @@ name = "pypi"
 py-cord = {extras = ["voice"], version = "*"}
 python-dotenv = "*"
 dataset = "*"
-audioop-lts = "*"
 mysqlclient = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.13"
-python_full_version = "3.13.0"
+python_version = "3.12"
