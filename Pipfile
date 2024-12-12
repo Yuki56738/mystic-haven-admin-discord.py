@@ -8,6 +8,7 @@ py-cord = {extras = ["voice"], version = "*"}
 python-dotenv = "*"
 dataset = "*"
 audioop-lts = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

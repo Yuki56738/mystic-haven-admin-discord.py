@@ -5,16 +5,16 @@ import discord
 
 import dotenv
 import dataset
-from aiohttp.web_routedef import options
 from discord import *
-
+# import MySQLdb
 dotenv.load_dotenv()
 
 TOKEN=os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.all()
 bot=discord.Bot(intents=intents)
-db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
+# db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
+db: dataset.Database = dataset.connect(str(os.getenv('DB')))
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
