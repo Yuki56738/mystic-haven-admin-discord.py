@@ -7,6 +7,5 @@ name = "pypi"
 dataset = "*"
 python-dotenv = "*"
 py-cord = {extras = ["voice"], version = "*"}
-mysqlclient = "*"
 
 [dev-packages]
