@@ -5,16 +5,17 @@ import discord
 
 import dotenv
 import dataset
-from aiohttp.web_routedef import options
-from discord import Member, VoiceState, ApplicationContext, slash_command, commands
-
+from discord import *
 dotenv.load_dotenv()
 
 TOKEN=os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.all()
 bot=discord.Bot(intents=intents)
-db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
+# db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
+db: dataset.Database = dataset.connect(os.getenv('MYSQL_URL'))
+print(f'Connected to {db.url}')
+#db: dataset.Database = dataset.connect("mysql://root:IMuzJeVcnQquFnlxDQOciwKWjuhtHEKk@mysql.railway.internal:3306/railway")
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
@@ -62,9 +63,9 @@ async def setvcforcreate(ctx: ApplicationContext, vc: str):
 async def on_message(message):
     if message.author == bot.user:
         return
-    if message.content.startswith('.debug'):
-        for x in db[str(message.guild.id)]:
-            x: OrderedDict
-            print(x.get('setvc_create'))
+    # if message.content.startswith('.debug'):
+    #     for x in db[str(message.guild.id)]:
+    #         x: OrderedDict
+    #         print(x.get('setvc_create'))
 
 bot.run(TOKEN)

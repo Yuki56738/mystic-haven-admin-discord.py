@@ -4,13 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-py-cord = {extras = ["voice"], version = "*"}
-python-dotenv = "*"
 dataset = "*"
-audioop-lts = "*"
+python-dotenv = "*"
+py-cord = {extras = ["voice"], version = "*"}
 
 [dev-packages]
-
-[requires]
-python_version = "3.13"
-python_full_version = "3.13.0"
