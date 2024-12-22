@@ -7,5 +7,8 @@ name = "pypi"
 dataset = "*"
 python-dotenv = "*"
 py-cord = {extras = ["voice"], version = "*"}
+audioop-lts = "*"
+pymysql = "*"
+cryptography = "*"
 
 [dev-packages]
