@@ -6,6 +6,7 @@ import discord
 import dotenv
 import dataset
 from discord import *
+import pymysql
 dotenv.load_dotenv()
 
 TOKEN=os.getenv('DISCORD_TOKEN')
@@ -13,7 +14,7 @@ TOKEN=os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.all()
 bot=discord.Bot(intents=intents)
 # db: dataset.Database = dataset.connect('sqlite:///db.sqlite')
-db: dataset.Database = dataset.connect(os.getenv('MYSQL_URL'))
+db: dataset.Database = dataset.connect()
 print(f'Connected to {db.url}')
 #db: dataset.Database = dataset.connect("mysql://root:IMuzJeVcnQquFnlxDQOciwKWjuhtHEKk@mysql.railway.internal:3306/railway")
 @bot.event
